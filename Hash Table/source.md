@@ -1,0 +1,1 @@
+* [Most frequent element in an array](https://www.geeksforgeeks.org/frequent-element-array/)

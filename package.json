@@ -1,0 +1,46 @@
+{
+  "name": "coding-challenges",
+  "version": "1.0.0",
+  "description": "A collection of problem sets I've completed on Leetcode, Codewars, Qualified, and Geeks for Geeks.",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^26.1.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "warn",
+        2
+      ]
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larisachristie/coding-challenges.git"
+  },
+  "keywords": [],
+  "author": "Larisa Christie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larisachristie/coding-challenges/issues"
+  },
+  "homepage": "https://github.com/larisachristie/coding-challenges#readme"
+}
