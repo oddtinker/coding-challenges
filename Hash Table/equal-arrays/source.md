@@ -1,0 +1,1 @@
+* [Check if two arrays are equal or not](https://www.geeksforgeeks.org/check-if-two-arrays-are-equal-or-not/)
