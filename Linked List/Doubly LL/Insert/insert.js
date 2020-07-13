@@ -13,7 +13,7 @@ class ListNode {
 
 const insertNode = (head, val) => {
   if (!head) {
-    return new ListNode(val, null, null);
+    return new ListNode(val);
   }
   let initialHead = head;
   while (head) {
@@ -42,4 +42,4 @@ node3.prev = node2;
 node3.next = node4;
 node4.prev = node3;
 
-console.log(insertNode(node1, 5));
+console.log(insertNode(null, 5));
