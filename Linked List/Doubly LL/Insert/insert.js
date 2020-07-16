@@ -1,8 +1,8 @@
 class ListNode {
   constructor(val, prev, next) {
-    this.prev = (prev===undefined ? null : prev)
-    this.val = (val===undefined ? 0 : val)
-    this.next = (next===undefined ? null : next)
+    this.prev = (prev===undefined ? null : prev);
+    this.val = (val===undefined ? 0 : val);
+    this.next = (next===undefined ? null : next);
   }
 }
 /**
@@ -30,6 +30,7 @@ const insertNode = (head, val) => {
   }
 }
 
+// for testing
 const node1 = new ListNode(1);
 const node2 = new ListNode(2);
 const node3 = new ListNode(3);

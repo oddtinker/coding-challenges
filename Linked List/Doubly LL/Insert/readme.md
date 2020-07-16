@@ -1,0 +1,2 @@
+Interview question of the week by [Cassidoo](https://twitter.com/cassidoo/status/1282571426692624385).
+Task: given a sorted linked list and a value, insert a new node with that value in the list. I chose to practice on a doubly-linked list.
