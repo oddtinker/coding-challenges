@@ -1,0 +1,1 @@
+[Design a data structure that supports insert, delete, search and getRandom in constant time](https://www.geeksforgeeks.org/design-a-data-structure-that-supports-insert-delete-search-and-getrandom-in-constant-time/)
