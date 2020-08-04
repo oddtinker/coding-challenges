@@ -1,3 +1,10 @@
 node_modules
 
 package-lock.json
+
+/The\ Odin\ Project/caesar
+/The\ Odin\ Project/fibonacci
+/The\ Odin\ Project/findTheOldest
+/The\ Odin\ Project/getTheTitles
+/The\ Odin\ Project/pig_latin
+/The\ Odin\ Project/snakeCase

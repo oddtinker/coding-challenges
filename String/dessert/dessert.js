@@ -22,7 +22,7 @@ function formOrder(order) {
   order = order.split(separators);
   // ...where the value at index 0 corresponds to a key in the recipes object...
   let orderedIngredients = recipes[order[0]];
-  /// ...and the rest of the order array holds input dietary restrictions.
+  // ...and the rest of the order array holds input dietary restrictions.
   let restrictions = order.slice(1);
   let finalOrder = orderedIngredients.filter(item => !restrictions.includes(item));
 
