@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "A collection of problem sets I've completed on Leetcode, Codewars, Qualified, and Geeks for Geeks.",
   "main": "index.js",
-  "dependencies": {
-    "jest": "^26.1.0"
-  },
+  "dependencies": {},
   "eslintConfig": {
     "env": {
       "es6": true,
@@ -24,10 +22,10 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1"
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-jest": "^26.2.2",
+    "jest": "^26.2.2"
   },
   "scripts": {
     "test": "jest"
