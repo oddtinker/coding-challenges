@@ -2,8 +2,6 @@ node_modules
 
 package-lock.json
 
-/The\ Odin\ Project/findTheOldest
-/The\ Odin\ Project/getTheTitles
 /The\ Odin\ Project/pig_latin
 /The\ Odin\ Project/snakeCase
 

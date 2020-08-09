@@ -1,6 +1,5 @@
 class ListNode {
-  constructor(val, prev, next) {
-    this.prev = (prev===undefined ? null : prev)
+  constructor(val, next) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
   }
@@ -10,7 +9,8 @@ class ListNode {
  * @param {number} val
  * @return {ListNode}
  */
-const removeElements = function(head, val) {
+
+var removeElements = function(head, val) {
   // Empty node input
   if (!head) {
     return head;
@@ -19,7 +19,7 @@ const removeElements = function(head, val) {
     head = head.next;
   }
   let initialHeadNode = head;
-  let prevNode = ListNode(undefined, undefined);
+  let prevNode = new ListNode();
   
   while (head) {
     if (head.val === val) {
@@ -32,3 +32,13 @@ const removeElements = function(head, val) {
   }
   return initialHeadNode;
 };
+
+const node1 = new ListNode(1);
+const node2 = new ListNode(2);
+const node3 = new ListNode(3);
+const node4 = new ListNode(4);
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
+
+console.log(removeElements(node1, 3));

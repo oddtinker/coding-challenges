@@ -20,7 +20,7 @@ const removeNode = (head, val) => {
     head.prev = null;
   }
   let initialHead = head;
-  let prevNode = new ListNode(undefined);
+  let prevNode = new ListNode();
   while (head) {
     if (head.val === val) {
       head = head.next;
