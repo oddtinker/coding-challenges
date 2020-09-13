@@ -4,8 +4,9 @@ class Parent {
   constructor (name) {
     this.name = name;
     this.occupiedUntil = null;
+    this.assign = this.assign.bind(this);
   }
-  assign = (activityEnd) => {
+  assign (activityEnd) {
     this.occupiedUntil = activityEnd;
   }
 }
@@ -19,10 +20,13 @@ class Activity {
 
 class Schedule {
   constructor (activities) {
-      this.schedule = '';
-      this.activities = this.populateActivities(activities);
+    this.schedule = '';
+    this.activities = this.populateActivities(activities);
+    this.populateActivities = this.populateActivities.bind(this);
+    this.output = this.output.bind(this);
+    this.assign = this.assign.bind(this);
   }
-  populateActivities = (activitiesArray) => {
+  populateActivities (activitiesArray) {
     const classyActivities = [];
     activitiesArray.sort((a, b) => a[1] - b[1]);
     for (let i = 0; i < activitiesArray.length; i++) {
@@ -33,7 +37,7 @@ class Schedule {
   output () {
     console.log(this.schedule);
   }
-  assign = (parent1, parent2) => {
+  assign (parent1, parent2) {
     for (const activity of this.activities) {
       if (parent1.occupiedUntil <= activity.start) {
         parent1.assign(activity.end);

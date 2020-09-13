@@ -1,12 +1,12 @@
 import fs from 'fs';
-import readline from 'readline';
 
 class Parent {
   constructor (name) {
     this.name = name;
     this.occupiedUntil = null;
+    this.assign = this.assign.bind(this);
   }
-  assign = (activityEnd) => {
+  assign (activityEnd) {
     this.occupiedUntil = activityEnd;
   }
 }
@@ -20,10 +20,13 @@ class Activity {
 
 class Schedule {
   constructor (activities) {
-      this.schedule = '';
-      this.activities = this.populateActivities(activities);
+    this.schedule = '';
+    this.activities = this.populateActivities(activities);
+    this.populateActivities = this.populateActivities.bind(this);
+    this.output = this.output.bind(this);
+    this.assign = this.assign.bind(this);
   }
-  populateActivities = (activitiesArray) => {
+  populateActivities (activitiesArray) {
     const classyActivities = [];
     activitiesArray.sort((a, b) => a[1] - b[1]);
     for (let i = 0; i < activitiesArray.length; i++) {
@@ -34,7 +37,7 @@ class Schedule {
   output () {
     console.log(this.schedule);
   }
-  assign = (parent1, parent2) => {
+  assign (parent1, parent2) {
     for (const activity of this.activities) {
       if (parent1.occupiedUntil <= activity.start) {
         parent1.assign(activity.end);
@@ -50,46 +53,42 @@ class Schedule {
   }
 }
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-function asyncQuestion(query) {
-  return new Promise((resolve, reject) => {
-    rl.question(query, (input) => {
-      const regexp = /^(\d|\s)+$/;
-    if (regexp.test(input)) {
-      resolve(input);
-    } else {
-      rl.close();
-      reject(new Error("Usage: integers"));
+function main(filePath = '') {
+  function readInput(path) {
+    const input = fs.readFileSync(path, { encoding:'utf8', flag:'r' }).split('\n');
+    let numOfCases = parseInt(input.splice(0, 1), 10);
+    const cases = [numOfCases];
+    while (numOfCases > 0) {
+      const currentCase = input.splice(0, parseInt(input[0], 10) + 1);
+      cases.push(currentCase);
+      numOfCases--;
     }
-    });
-  });
+    return cases;
+  }
+
+  function computeInput(allCasesArray) {
+    const numOfCases = parseInt(allCasesArray[0], 10);
+    
+    function computeSingleTestCase(caseArray) {
+      const numOfLines = parseInt(caseArray[0], 10);
+      const activities = [];
+      for (let j = 1; j <= numOfLines; j++) {
+        activities.push(caseArray[j].split(' '));
+      }
+      return activities;
+    }
+    
+    for (let i = 1; i <= numOfCases; i++) {
+      const activitiesArray = computeSingleTestCase(allCasesArray[i]);
+      const schedule = new Schedule(activitiesArray);
+      const cameron = new Parent('C');
+      const jamie = new Parent('J');
+      schedule.assign(jamie, cameron);
+      schedule.output();
+    }
+  }
+  const inputArray = readInput(filePath);
+  return computeInput(inputArray);
 }
 
-async function computeSingleTestCase() {
-  const numOfLines = await asyncQuestion(`Enter the number of schedule lines for test case: `);
-  const parsedNumOfLines = parseInt(numOfLines);
-  const activities = [];
-  for (let j = 1; j <= parsedNumOfLines; j++) {
-    const newLine = await asyncQuestion(`${j} activity: `);
-    activities.push(newLine.split(' '));
-  }
-  return activities;
-}
-
-(async function getNumOfTestCases() {
-  const numOfCases = await asyncQuestion("Enter the number of test cases: ");
-  const parsednumOfCases = parseInt(numOfCases);
-  for (let i = 1; i <= parsednumOfCases; i++) {
-    const activitiesArray = await computeSingleTestCase();
-    const schedule = new Schedule(activitiesArray);
-    const cameron = new Parent('C');
-    const jamie = new Parent('J');
-    schedule.assign(jamie, cameron);
-    schedule.output();
-  }
-  rl.close();
-})();
+main('./sampleCases.txt');
