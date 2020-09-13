@@ -4,6 +4,7 @@
   "description": "A collection of problem sets I've completed on Leetcode, Codewars, Qualified, and Geeks for Geeks.",
   "main": "index.js",
   "dependencies": {},
+  "type": "module",
   "eslintConfig": {
     "env": {
       "es6": true,
